@@ -7,17 +7,18 @@ export default function Login() {
     return (
         <View style={style.container}>
             <View style={style.boxTop}>
-                <Image source={Logo}/>
-                <Text>Bem vindo de volta!</Text>
+                <Image source={Logo} style={style.logo} resizeMode="contain"/>
+                <Text style={style.text}>Bem vindo de volta!</Text>
             </View>
             <View style={style.boxMid}>
-                <Text>Endereço de E-mail</Text>
-                <TextInput />
-                    <Text>Senha</Text>
+                <Text style={style.titleInput}>Endereço de E-mail</Text>
+                <View style={style.boxInput}>
+                    <TextInput style={style.input}/>
+                </View>
+                <Text style={style.titleInput}>Senha</Text>
                 <TextInput />
             </View>
             <View style={style.boxBotton}>
-                <Text></Text>
             </View>
         </View>
     )
