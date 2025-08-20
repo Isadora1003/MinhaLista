@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image, TextInput} from "react-native";
+import { Text, View, Image, TextInput, TouchableOpacity} from "react-native";
 import { style } from "./styles";
 import Logo from "../../assets/logo.png";
 import {MaterialIcons} from '@expo/vector-icons';
@@ -25,7 +25,12 @@ export default function Login() {
                 </View>
             </View>
             <View style={style.boxBotton}>
+                <TouchableOpacity style={style.button}>
+                    <Text style={style.textbutton}>Entrar</Text>
+                </TouchableOpacity>
             </View>
+            <Text style={style.textoBotton}>Não tem conta? 
+            <Text style={{color:themas.colors.primary}}> Crie agora!</Text></Text>
         </View>
     )
 }
