@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Text, View, Image, TextInput, TouchableOpacity, Alert, ActivityIndicator} from "react-native";
 import { style } from "./styles";
 import Logo from "../../assets/logo.png";
-import {MaterialIcons} from '@expo/vector-icons';
+import {MaterialIcons, Octicons} from '@expo/vector-icons';
 import { themas } from "../../global/themes";
 import { Input } from "../../components/input";
 
@@ -38,7 +38,8 @@ export default function Login() {
                 <Text style={style.text}>Bem vindo de volta!</Text>
             </View>
             <View style={style.boxMid}>
-                <Input />
+                <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconRight={MaterialIcons} IconRightName="email"/>
+                <Input value={password} onChangeText={setPassword} title="SENHA" IconRight={Octicons} IconRightName="eye-closed"/>
                 {/* <Text style={style.titleInput}>Endereço de E-mail</Text>
                 <View style={style.boxInput}>
                     <TextInput style={style.input} value={email} onChangeText={setEmail}/>
