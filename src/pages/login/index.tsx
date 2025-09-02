@@ -38,7 +38,7 @@ export default function Login() {
                 <Text style={style.text}>Bem vindo de volta!</Text>
             </View>
             <View style={style.boxMid}>
-                <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconRight={MaterialIcons} IconRightName="email"/>
+                <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconLeft={MaterialIcons} IconLeftName="email" IconRight={MaterialIcons} IconRightName="email"/>
                 <Input value={password} onChangeText={setPassword} title="SENHA" IconRight={Octicons} IconRightName="eye-closed"/>
                 {/* <Text style={style.titleInput}>Endereço de E-mail</Text>
                 <View style={style.boxInput}>
