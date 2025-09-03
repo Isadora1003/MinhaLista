@@ -9,6 +9,7 @@ import { Input } from "../../components/input";
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(true);
     const [loading, setLoading] = useState(false);
 
     async function getLogin() {
@@ -38,8 +39,8 @@ export default function Login() {
                 <Text style={style.text}>Bem vindo de volta!</Text>
             </View>
             <View style={style.boxMid}>
-                <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconLeft={MaterialIcons} IconLeftName="email" IconRight={MaterialIcons} IconRightName="email"/>
-                <Input value={password} onChangeText={setPassword} title="SENHA" IconRight={Octicons} IconRightName="eye-closed"/>
+                <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconRight={MaterialIcons} IconRightName="email"/>
+                <Input value={password} onChangeText={setPassword} title="SENHA" IconRight={Octicons} IconRightName={showPassword ? "eye-closed" : "eye"} secureTextEntry={showPassword} onIconRightPress={() => setShowPassword(!showPassword)}/>
                 {/* <Text style={style.titleInput}>Endereço de E-mail</Text>
                 <View style={style.boxInput}>
                     <TextInput style={style.input} value={email} onChangeText={setEmail}/>
