@@ -5,6 +5,7 @@ import Logo from "../../assets/logo.png";
 import {MaterialIcons, Octicons} from '@expo/vector-icons';
 import { themas } from "../../global/themes";
 import { Input } from "../../components/input";
+import { Button } from "../../components/Button";
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -41,25 +42,12 @@ export default function Login() {
             <View style={style.boxMid}>
                 <Input value={email} onChangeText={setEmail} title="ENDEREÇO DE E-MAIL" IconRight={MaterialIcons} IconRightName="email"/>
                 <Input value={password} onChangeText={setPassword} title="SENHA" IconRight={Octicons} IconRightName={showPassword ? "eye-closed" : "eye"} secureTextEntry={showPassword} onIconRightPress={() => setShowPassword(!showPassword)}/>
-                {/* <Text style={style.titleInput}>Endereço de E-mail</Text>
-                <View style={style.boxInput}>
-                    <TextInput style={style.input} value={email} onChangeText={setEmail}/>
-                    <MaterialIcons name="email" size={20} color={themas.colors.gray}/>
-                </View>
-                <Text style={style.titleInput}>Senha</Text>
-                <View style={style.boxInput}>
-                    <TextInput style={style.input} value={password} onChangeText={setPassword}/>
-                    <MaterialIcons name="remove-red-eye" size={20} color={themas.colors.gray}/>
-                </View> */}
+
             </View>
             <View style={style.boxBotton}>
-                <TouchableOpacity style={style.button} onPress={() => getLogin()}>
-                    {
-                        loading ? <ActivityIndicator color={'#ffff'} size={'small'} /> : <Text style={style.textbutton}>Entrar</Text>
-                    }
-                </TouchableOpacity>
+                <Button text = "Entrar" loading = {loading} onPress={() => getLogin()} />
             </View>
-            <Text style={style.textoBotton}>Não tem conta? 
+            <Text style={style.textBotton}>Não tem conta? 
             <Text style={{color:themas.colors.primary}}> Crie agora!</Text></Text>
         </View>
     )
