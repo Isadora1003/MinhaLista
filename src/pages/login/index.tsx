@@ -28,15 +28,7 @@ export default function Login() {
             navigation.navigate("BottomRoutes")
 
             console.log("Logou !!!!!!!!!!!!!!!!!!!!!!!");
-
-            setTimeout(() => {
-                if (email == 'isadora@gmail.com' && password == '12345678') {
-                    Alert.alert('Logado com sucesso!');
-                } else {
-                    Alert.alert('Usuario não encontrado!');
-                } 
-                setLoading(false)
-            }, 3000)
+            
         } catch(error) {
             console.log(error);
         } finally {
