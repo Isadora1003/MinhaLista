@@ -10,8 +10,11 @@ export default ({state, navigation}: any) => {
                 <AntDesign name="bars" style={{fontSize: 32}}/>
             </TouchableOpacity>
             <TouchableOpacity style={style.tabItemButton}>
-                <View>
-                    <Entypo name="plus" size={40} />
+                <View style={{width: '100%', left: 10, top: 4}}>
+                    <Entypo name="plus" size={40} color={'#FFF'}/>
+                </View>
+                <View style={{flexDirection: 'row-reverse', width: '100%', right: 10, bottom: 10}}>
+                    <MaterialIcons name="edit" style={{color: '#FFF'}} size={30}/>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity style={style.tabItem}>
