@@ -49,5 +49,12 @@ export const style = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10
+    },
+    titleCard: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    descriptionCard: {
+        color: themas.colors.gray,
     }
 })
