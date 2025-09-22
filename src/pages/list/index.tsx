@@ -1,5 +1,5 @@
 import React from "react";
-import { Text , View, FlatList} from "react-native";
+import { Text , View, FlatList, TouchableOpacity} from "react-native";
 import { style } from "./styles";
 import { Input } from "../../components/input";
 import { MaterialIcons } from '@expo/vector-icons';
@@ -34,6 +34,20 @@ const data: Array<PropCard> = [
 ]
 
 export default function List () {
+    const _renderCard = (item: PropCard) => {
+        return (
+            <TouchableOpacity style={style.card}>
+                <View style={style.rowCard}>
+                    {/* <Ball /> */}
+                    <View>
+                        <Text>{item.title}</Text>
+                        <Text>{item.description}</Text>
+                    </View>
+                    {/* <Flag /> */}
+                </View>
+            </TouchableOpacity>
+        )
+    }
     return (
         <View style={style.container}>
             <View style={style.header}>
@@ -45,9 +59,9 @@ export default function List () {
             </View>
             <View style={style.boxList}>
                 <FlatList data={data} 
-                style={{marginTop: 40, paddingHorizontal: 30}}
+                style={{ marginTop: 40, paddingHorizontal: 30} }
                 keyExtractor={(item, index) => item.item.toString()}
-                renderItem={({ item, index }) => {return (<Text>{item.title}</Text>) }}/>
+                renderItem={({ item, index }) => { return (_renderCard(item)) }}/>
             </View>
         </View>
     )
