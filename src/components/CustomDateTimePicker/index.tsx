@@ -18,18 +18,18 @@ const CustomDateTimePicker = ({ type, onDateChange, show, setShow }) => {
             <View style={style.modalOverlay}>
                 <View style={[
                     style.container
-                    , Platform.OS == 'android' && {backgroundColor: 'transparent'}
-                    ]}>
-                    <DateTimePicker 
-                    value={date} 
-                    mode={type} 
-                    display={Platform.OS === 'ios' ? 'inline' : 'default'} 
-                    onChange={onChange}
+                    , Platform.OS == 'android' && { backgroundColor: 'transparent' }
+                ]}>
+                    <DateTimePicker
+                        value={date}
+                        mode={type}
+                        display={Platform.OS === 'ios' ? 'inline' : 'default'}
+                        onChange={onChange}
                     />
                 </View>
             </View>
         </Modal>
-)
+    )
 }
 
 export default CustomDateTimePicker
