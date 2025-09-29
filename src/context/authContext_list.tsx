@@ -24,6 +24,8 @@ export const AuthProviderList = (props: any): any => {
     const [selected, setSelected] = useState('Urgente');
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTime, setSelectedTime] = useState(new Date());
+    const [showDatePicker, setShowDatePicker] = useState(false);
+    const [showTimePicker, setShowTimePicker] = useState(false);
 
 
     const onOpen = () => {
@@ -42,7 +44,7 @@ export const AuthProviderList = (props: any): any => {
     const _renderFlags = () => {
         return (
             flags.map((item, index) => (
-                <TouchableOpacity>
+                <TouchableOpacity key={index}>
                     <Flag
                         caption={item.caption}
                         color={item.color}
@@ -51,6 +53,12 @@ export const AuthProviderList = (props: any): any => {
                 </TouchableOpacity>
             ))
         )
+    }
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    }
+    const handleTimeChange = (date) => {
+        setSelected(date);
     }
 
     const _container = () => {
@@ -71,7 +79,8 @@ export const AuthProviderList = (props: any): any => {
                 </View>
                 <View style={{ width: '40%' }}>
                     {/* <Input title="Tempo limite" labelStyle={styles.label}/> */}
-                    <CustomDateTimePicker onDateChange={() => {}} setShow={() => {}} show={true} type={'date'}/>
+                    <CustomDateTimePicker onDateChange={handleDateChange} setShow={setShowDatePicker} show={showDatePicker} type={'date'}/>
+                    <CustomDateTimePicker onDateChange={handleTimeChange} setShow={setShowTimePicker} show={showTimePicker} type={'date'}/>
                 </View>
                 <View style={styles.containerFlag}>
                     <Text style={styles.label}>Flags:</Text>
