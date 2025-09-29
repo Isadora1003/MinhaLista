@@ -75,7 +75,7 @@ export const AuthProviderList = (props: any): any => {
                 </View>
                 <View style={styles.content}>
                     <Input title="Título" labelStyle={styles.label} value={title} onChangeText={setTitle} />
-                    <Input title="Descrição" labelStyle={styles.label} height={100} multiline numberOfLines={5} value={description} onChangeText={setDescription} />
+                    <Input title="Descrição" labelStyle={styles.label} height={100} multiline numberOfLines={5} value={description} onChangeText={setDescription} textAlignVertical="top"/>
                 </View>
                 <View style={{ width: '40%' }}>
                     {/* <Input title="Tempo limite" labelStyle={styles.label}/> */}
@@ -83,12 +83,12 @@ export const AuthProviderList = (props: any): any => {
                         <TouchableOpacity onPress={() => setShowDatePicker(true)} style={{ width: 200 }}>
                             <Input title="Data Limite" labelStyle={styles.label} editable={false} value={selectedDate.toLocaleDateString()} onPress={() => setShowDatePicker(true)} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width: 120}}>
+                        <TouchableOpacity style={{width: 120}} onPress={()=> setShowTimePicker(true)}>
                             <Input title="Hora Limite" labelStyle={styles.label} editable={false} value={selectedDate.toLocaleTimeString()} onPress={() => setShowTimePicker(true)}/>
                         </TouchableOpacity>
                     </View>
                     <CustomDateTimePicker onDateChange={handleDateChange} setShow={setShowDatePicker} show={showDatePicker} type={'date'} />
-                    <CustomDateTimePicker onDateChange={handleTimeChange} setShow={setShowTimePicker} show={showTimePicker} type={'date'} />
+                    <CustomDateTimePicker onDateChange={handleTimeChange} setShow={setShowTimePicker} show={showTimePicker} type={'time'} />
                 </View>
                 <View style={styles.containerFlag}>
                     <Text style={styles.label}>Flags:</Text>
