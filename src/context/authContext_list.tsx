@@ -69,9 +69,9 @@ export const AuthProviderList = (props: any): any => {
     }
 
     const handleSave = async () => {
-         if(!title || !description || !selectedFlag) {
+        if (!title || !description || !selectedFlag) {
             return Alert.alert('Atenção', 'Preencha os campos corretamente!');
-         }
+        }
         try {
             const newItem = {
                 item: Date.now(),
@@ -89,7 +89,7 @@ export const AuthProviderList = (props: any): any => {
 
             const storageData = await AsyncStorage.getItem('taskList')
             // console.log(storageData)
-            let taskList = storageData ? JSON.parse (storageData) : [];
+            let taskList = storageData ? JSON.parse(storageData) : [];
             taskList.push(newItem);
             await AsyncStorage.setItem('taskList', JSON.stringify(taskList))
 
@@ -106,8 +106,8 @@ export const AuthProviderList = (props: any): any => {
     const setData = () => {
         setTitle('')
         setDescription(''),
-        setSelectedFlag('Urgente'),
-        setItem(0)
+            setSelectedFlag('Urgente'),
+            setItem(0)
         setSelectedDate(new Date())
         setSelectedTime(new Date())
     }
@@ -121,6 +121,21 @@ export const AuthProviderList = (props: any): any => {
             console.log(error)
         }
     }
+
+    const handleDelete = async (itemToDelete) => {
+        try {
+            const StorageData = await AsyncStorage.getItem('taskList')
+            const taskList: Array<any> = StorageData ? JSON.parse(StorageData) : []
+
+            const updateTaskList = taskList.filter(item => item.item !== itemToDelete.item)
+
+            await AsyncStorage.setItem('taskList', JSON.stringify(updateTaskList))
+            setTaskList(updateTaskList)
+
+        } catch (error) {
+            console.log("Erro ao excluir o item", error)
+        }
+    } 
 
     const _container = () => {
         return (
@@ -161,7 +176,7 @@ export const AuthProviderList = (props: any): any => {
         )
     }
     return (
-        <AuthContextList.Provider value={{ onOpen, taskList }}>
+        <AuthContextList.Provider value={{ onOpen, taskList, handleDelete}}>
             {props.children}
             <Modalize
                 ref={modalizeRef}

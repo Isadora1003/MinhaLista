@@ -13,7 +13,7 @@ import { Swipeable } from "react-native-gesture-handler";
 
 export default function List() {
 
-    const { taskList } = useContext<AuthContextType>(AuthContextList)
+    const { taskList, handleDelete } = useContext<AuthContextType>(AuthContextList)
     const swipeableRefs = useRef([])
     const renderRighActions = () => {
         return (<View style={style.button}>
@@ -22,13 +22,24 @@ export default function List() {
         )
     }
 
-    const renderLeftActions = () => {
-        return (
-            <View style={[style.button, {backgroundColor: themas. colors.blueLight }]}>
-                <AntDesign name="edit" size={20} color={'#FFF'} />
-            </View>
-        )
+    const renderLeftActions = () => (
+        <View style={[style.button, { backgroundColor: themas.colors.blueLight }]}>
+            <AntDesign
+                name="edit"
+                size={20}
+                color={'#FFF'} />
+        </View>
+    );
+
+    const handleSwipeOpen = (directions: 'right' | 'left', item, index) => {
+        if (directions == 'right') {
+            handleDelete(item)
+            swipeableRefs.current[index]?.close()
+        } else {
+            //
+        }
     }
+
 
     const _renderCard = (item: PropCard, index) => {
         const color = item.flag == 'Opcional' ? themas.colors.blueLight : themas.colors.red
@@ -38,6 +49,7 @@ export default function List() {
                 key={index}
                 renderRightActions={renderRighActions}
                 renderLeftActions={renderLeftActions}
+                onSwipeableOpen={(directions) => handleSwipeOpen(directions, item, index)}
             >
                 <View style={style.card}>
                     <View style={style.rowCard}>
