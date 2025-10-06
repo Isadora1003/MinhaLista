@@ -41,8 +41,8 @@ export const AuthProviderList = (props: any): any => {
     }
 
     useEffect(() => {
-        console.log(taskList.length)
-    }, [taskList]);
+        get_taskList()
+    }, []);
 
     const _renderFlags = () => {
         return (
@@ -110,6 +110,16 @@ export const AuthProviderList = (props: any): any => {
         setItem(0)
         setSelectedDate(new Date())
         setSelectedTime(new Date())
+    }
+
+    async function get_taskList() {
+        try {
+            const storageDate = await AsyncStorage.getItem('taskList');
+            const taskList = storageDate ? JSON.parse(storageDate) : []
+            setTaskList(taskList)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const _container = () => {
