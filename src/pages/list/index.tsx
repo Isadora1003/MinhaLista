@@ -13,7 +13,7 @@ import { Swipeable } from "react-native-gesture-handler";
 
 export default function List() {
 
-    const { taskList, handleDelete } = useContext<AuthContextType>(AuthContextList)
+    const { taskList, handleDelete, handleEdit } = useContext<AuthContextType>(AuthContextList)
     const swipeableRefs = useRef([])
     const renderRighActions = () => {
         return (<View style={style.button}>
@@ -34,10 +34,11 @@ export default function List() {
     const handleSwipeOpen = (directions: 'right' | 'left', item, index) => {
         if (directions == 'right') {
             handleDelete(item)
-            swipeableRefs.current[index]?.close()
+            
         } else {
-            //
+            handleEdit(item)
         }
+        swipeableRefs.current[index]?.close()
     }
 
 
