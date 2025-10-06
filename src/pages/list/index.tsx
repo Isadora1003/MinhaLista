@@ -18,7 +18,16 @@ export default function List() {
     const renderRighActions = () => {
         return (<View style={style.button}>
             <AntDesign name="delete" size={20} color={'#FFF'} />
-        </View>)
+        </View>
+        )
+    }
+
+    const renderLeftActions = () => {
+        return (
+            <View style={[style.button, {backgroundColor: themas. colors.blueLight }]}>
+                <AntDesign name="edit" size={20} color={'#FFF'} />
+            </View>
+        )
     }
 
     const _renderCard = (item: PropCard, index) => {
@@ -27,7 +36,8 @@ export default function List() {
             <Swipeable
                 ref={(ref) => swipeableRefs.current[index] = ref}
                 key={index}
-                renderLeftActions={renderRighActions}
+                renderRightActions={renderRighActions}
+                renderLeftActions={renderLeftActions}
             >
                 <View style={style.card}>
                     <View style={style.rowCard}>
