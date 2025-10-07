@@ -25,7 +25,7 @@ export default function Login() {
                 return Alert.alert('Atenção', 'Informe os campos obrigatórios!');
             }
 
-            navigation.reset({routes: [{name: "BottomRoutes" }]})
+            
             if (email === 'isadora@gmail.com' && password == '12345678') {
                 navigation.reset({ routes: [{ name: "BottomRoutes"}]})
             } else { 
