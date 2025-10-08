@@ -15,16 +15,20 @@ const CustomDateTimePicker = ({ type, onDateChange, show, setShow }) => {
     const onChange = (event, selectDate) => {
         const currentDate = selectDate || date;
         setDate(currentDate);
-        setShow(false);//Oculta o picker após a seleção.
+        setShow(false); // Oculta o picker após a seleção.
     }
 
-
     return (
-        <Modal transparent={true} visible={show} onRequestClose={() => setShow(false)}>
+        <Modal
+            transparent={true}
+            visible={show}
+            onRequestClose={() => setShow(false)}
+        >
             <View style={style.modalOverlay}>
                 <View style={[
-                    style.container
-                    , Platform.OS == 'android' && { backgroundColor: 'transparent' }
+                    style.container,
+                    Platform.OS == 'android' && { backgroundColor: 'transparent' }
+
                 ]}>
                     <DateTimePicker
                         value={date}

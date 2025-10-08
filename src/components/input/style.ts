@@ -17,19 +17,20 @@ export const style = StyleSheet.create({
     },
     input: {
         height: '100%',
-        width:'90%',
+        width: '90%',
         borderRadius: 40,
         paddingLeft: 5,
     },
     titleInput: {
         marginLeft: 5,
         color: themas.colors.gray,
-        marginTop: 20,
+        marginTop: 20
     },
     Icon: {
-        width: '100%',
+        width: '100%'
     },
+    
     Button: {
-        width: '100%',
+        width: '10%'
     }
 })
