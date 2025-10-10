@@ -42,6 +42,7 @@ export const AuthProviderList = (props: any): any => {
     }
     const onClose = () => {
         modalizeRef?.current?.close();
+        setData();
     }
 
     useEffect(() => {
@@ -288,6 +289,7 @@ export const AuthProviderList = (props: any): any => {
             {props.children}
             <Modalize
                 ref={modalizeRef}
+                onClose={setData}
                 // modalHeight={Dimensions.get('window').height / 1.3}
                 childrenStyle={{ height: Dimensions.get('window').height / 1.3 }}
                 adjustToContentHeight={true}
